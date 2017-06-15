@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nchutchind/Streaming-Media-Cordova-Plugin.git"
+    "url": "git+https://github.com/FathersNelsons/cordova-plugin-streaming-media"
   },
   "keywords": [
     "media",
@@ -23,5 +23,5 @@
   "bugs": {
     "url": "https://github.com/nchutchind/Streaming-Media-Cordova-Plugin/issues"
   },
-  "homepage": "https://github.com/nchutchind/Streaming-Media-Cordova-Plugin#readme"
+  "homepage": "https://github.com/FathersNelsons/cordova-plugin-streaming-media"
 }
