@@ -26,7 +26,7 @@
 	</engines>
 
 	<js-module src="www/StreamingMedia.js" name="StreamingMedia">
-		<clobbers target="streamingMedia" />
+		<clobbers target="cordova.plugins.streamingMedia" />
 	</js-module>
 
 	<!-- ios -->
