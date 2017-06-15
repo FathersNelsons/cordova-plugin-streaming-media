@@ -36,39 +36,12 @@ public class SimpleVideoStream extends Activity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		setContentView(R.layout.activity_main);
 
-		Bundle b = getIntent().getExtras();
-		mVideoUrl = b.getString("mediaUrl");
-		mShouldAutoClose = b.getBoolean("shouldAutoClose");
-		mShouldAutoClose = mShouldAutoClose == null ? true : mShouldAutoClose;
-		mControls = b.getBoolean("controls", true);
-
-		RelativeLayout relLayout = new RelativeLayout(this);
-		relLayout.setBackgroundColor(Color.BLACK);
-		RelativeLayout.LayoutParams relLayoutParam = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
-		relLayoutParam.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
-		mVideoView = new VideoView(this);
-		mVideoView.setLayoutParams(relLayoutParam);
-		relLayout.addView(mVideoView);
-
-		// Create progress throbber
-		mProgressBar = new ProgressBar(this);
-		mProgressBar.setIndeterminate(true);
-		// Center the progress bar
-		RelativeLayout.LayoutParams pblp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-		pblp.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
-		mProgressBar.setLayoutParams(pblp);
-		// Add progress throbber to view
-		relLayout.addView(mProgressBar);
-		mProgressBar.bringToFront();
-
-		setOrientation(b.getString("orientation"));
-
-		setContentView(relLayout, relLayoutParam);
-
-		play();
+		videoView = (VideoView) this.findViewById(R.id.videoView);
+		videoView.setVideoPath(videoUri);
+		videoView.requestFocus();
+		videoView.start();
 	}
 
 	private void play() {
